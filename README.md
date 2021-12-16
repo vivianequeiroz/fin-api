@@ -33,7 +33,7 @@ Build an API for a financial system in order to practice the main concepts of No
 ## To test in your machine 
 
   - Clone this repository
-  - To install the necessary dependencies installed, use one of the commands:
+  - To install the necessary dependencies, use one of the commands:
     - **$ yarn install** 
     - **$ npm install** or a shortcut **npm i** 
   - To start the server, use one of the commands:
