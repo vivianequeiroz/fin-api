@@ -3,10 +3,9 @@
 ## Application goal 
 
 Build an API for a financial system in order to practice the main concepts of Node.js 
-
 ## Requirements
 
-- [ ] It must be possible to create an account 
+- [x] It must be possible to create an account 
 - [ ] It must be possible to search a customer bank statement
 - [ ] It must be possible to make a bank deposit
 - [ ] It must be possible to make a bank withdrawal
@@ -16,7 +15,7 @@ Build an API for a financial system in order to practice the main concepts of No
 - [ ] It must be possible to dele an account 
 
 ## Business Rules 
-- [ ] It must not be possible to register an account with an existing CPF (an ID for brazilians like SIN or SSN number)
+- [x] It must not be possible to register an account with an existing CPF (an ID for brazilians like SIN or SSN number)
 - [ ] It must not be possible to ake a bank deposit in a non-existing account
 - [ ] It must not be possible to search for a a bank withdrawal in a non-existing account
 - [ ] It must not be possible to make a bank withdrawal in a non-existing account
