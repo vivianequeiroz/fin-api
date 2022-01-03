@@ -16,7 +16,7 @@ Build an API for a financial system in order to practice the main concepts of No
 
 ## Business Rules 
 - [x] It must not be possible to register an account with an existing CPF (an ID for brazilians like SIN or SSN number)
-- [ ] It must not be possible to ake a bank deposit in a non-existing account
+- [x] It must not be possible to ake a bank deposit in a non-existing account
 - [ ] It must not be possible to search for a a bank withdrawal in a non-existing account
 - [ ] It must not be possible to make a bank withdrawal in a non-existing account
 - [ ] It must not be possible to delete a non-existing account
