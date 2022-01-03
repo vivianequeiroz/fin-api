@@ -6,7 +6,7 @@ Build an API for a financial system in order to practice the main concepts of No
 ## Requirements
 
 - [x] It must be possible to create an account 
-- [ ] It must be possible to search a customer bank statement
+- [x] It must be possible to search a customer bank statement
 - [ ] It must be possible to make a bank deposit
 - [ ] It must be possible to make a bank withdrawal
 - [ ] It must be possible to search for a customer bank statement by date
