@@ -24,6 +24,8 @@ function verifyIfExistsAccountCPF(request, response, next) {
     return response.status(400).json({ error: "Customer not found." });
   }
 
+  request.customer = customer;
+
   return next();
 }
 
@@ -48,9 +50,8 @@ app.post("/account", (request, response) => {
   return response.status(201).send();
 });
 
-app.use(verifyIfExistsAccountCPF); // This strategy apply the middleware to all the subsequent routes
-
-app.get("/statement ", (request, response) => {
+app.get("/statement ", verifyIfExistsAccountCPF, (request, response) => {
+  const { customer } = request; // make it possible to access the validated customer
   return response.json(customer.statement);
 });
 
