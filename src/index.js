@@ -13,6 +13,20 @@ app.use(express.json());
 
 const customers = [];
 
+//Middleware - a function to be executed after the request is made and before the repsonse is processed
+
+function verifyIfExistsAccountCPF(request, response, next) {
+  const { cpf } = request.headers;
+
+  const customer = customers.find((customer) => customer.cpf === cpf); // find return data
+
+  if (!customer) {
+    return response.status(400).json({ error: "Customer not found." });
+  }
+
+  return next();
+}
+
 app.post("/account", (request, response) => {
   const { cpf, name } = request.body;
 
@@ -34,15 +48,8 @@ app.post("/account", (request, response) => {
   return response.status(201).send();
 });
 
-app.get("/statement", (request, response) => {
-  const { cpf } = request.headers;
-
-  const customer = customers.find((customer) => customer.cpf === cpf); // find return data
-
-  if (!customer) {
-    return response.status(400).json({ error: "Customer not found." });
-  }
-
+app.get("/statement ", verifyIfExistsAccountCPF, (request, response) => {
+  //more Middleware can be added, before request and response. This strategy is useful when only some routes will use it/them
   return response.json(customer.statement);
 });
 
