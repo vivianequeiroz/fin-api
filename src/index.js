@@ -48,8 +48,9 @@ app.post("/account", (request, response) => {
   return response.status(201).send();
 });
 
-app.get("/statement ", verifyIfExistsAccountCPF, (request, response) => {
-  //more Middleware can be added, before request and response. This strategy is useful when only some routes will use it/them
+app.use(verifyIfExistsAccountCPF); // This strategy apply the middleware to all the subsequent routes
+
+app.get("/statement ", (request, response) => {
   return response.json(customer.statement);
 });
 
