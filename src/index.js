@@ -61,6 +61,7 @@ app.post("/account", (request, response) => {
 
 app.get("/statement ", verifyIfExistsAccountCPF, (request, response) => {
   const { customer } = request; // make it possible to access the validated customer
+
   return response.json(customer.statement);
 });
 
@@ -100,6 +101,19 @@ app.post("/widthdraw", verifyIfExistsAccountCPF, (request, response) => {
   customer.statement.push(statementOperation);
 
   return response.status(201).send();
+});
+
+app.get("/statement/date ", verifyIfExistsAccountCPF, (request, response) => {
+  const { customer } = request;
+  const { date } = request.query;
+
+  const dateFormat = new Date(date + " 00:00");
+
+  const statement = customer.statement.filter((statement) => {
+    statement.created_at.toDateString() === new Date(dateFormat).toDateString();
+  });
+
+  return response.status(200).json(statement);
 });
 
 app.listen(3333);
