@@ -8,7 +8,7 @@ Build an API for a financial system in order to practice the main concepts of No
 - [x] It must be possible to create an account 
 - [x] It must be possible to search a customer bank statement
 - [x] It must be possible to make a bank deposit
-- [ ] It must be possible to make a bank withdrawal
+- [x] It must be possible to make a bank withdrawal
 - [ ] It must be possible to search for a customer bank statement by date
 - [ ] It must be possible to update customer account data
 - [ ] It must be possible to get customer account data
@@ -17,8 +17,8 @@ Build an API for a financial system in order to practice the main concepts of No
 ## Business Rules 
 - [x] It must not be possible to register an account with an existing CPF (an ID for brazilians like SIN or SSN number)
 - [x] It must not be possible to ake a bank deposit in a non-existing account
-- [ ] It must not be possible to search for a a bank withdrawal in a non-existing account
-- [ ] It must not be possible to make a bank withdrawal in a non-existing account
+- [x] It must not be possible to search for a a bank withdrawal in a non-existing account
+- [x] It must not be possible to make a bank withdrawal in a non-existing account
 - [ ] It must not be possible to delete a non-existing account
 - [ ] It must not be possible to make a bank withdrawal when the balance is insufficient
 
