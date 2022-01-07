@@ -139,4 +139,12 @@ app.delete("/account", verifyIfExistsAccountCPF, (request, response) => {
   return response.status(200).json(customers); //to verify remained customers
 });
 
+app.get("/balance", verifyIfExistsBalance, (request, response) => {
+  const { customer } = request;
+
+  const balance = getBalance(customer.statement);
+
+  return response.status(200).json(balance);
+});
+
 app.listen(3333);
