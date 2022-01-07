@@ -10,9 +10,9 @@ Build an API for a financial system in order to practice the main concepts of No
 - [x] It must be possible to make a bank deposit
 - [x] It must be possible to make a bank withdrawal
 - [x] It must be possible to search for a customer bank statement by date
-- [ ] It must be possible to update customer account data
-- [ ] It must be possible to get customer account data
-- [ ] It must be possible to dele an account 
+- [x] It must be possible to update customer account data
+- [X] It must be possible to get customer account data
+- [ ] It must be possible to delete an account 
 
 ## Business Rules 
 - [x] It must not be possible to register an account with an existing CPF (an ID for brazilians like SIN or SSN number)
