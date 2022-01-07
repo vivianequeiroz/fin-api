@@ -29,6 +29,15 @@ function verifyIfExistsAccountCPF(request, response, next) {
   return next();
 }
 
+function getBalance(statement) {
+  const balance = statement.reduce((acc, operation) => {
+    if (operation.type === "credit") acc + operation.amount;
+    else acc - operation.amount;
+  }, 0);
+
+  return balance;
+}
+
 app.post("/account", (request, response) => {
   const { cpf, name } = request.body;
 
@@ -65,6 +74,27 @@ app.post("/deposit", verifyIfExistsAccountCPF, (request, response) => {
     amount,
     created_at: new Date(),
     type: "credit",
+  };
+
+  customer.statement.push(statementOperation);
+
+  return response.status(201).send();
+});
+
+app.post("/widthdraw", verifyIfExistsAccountCPF, (request, response) => {
+  const { customer } = request;
+  const { amount } = request.body;
+  const { balance } = getBalance(customer.statement);
+
+  const insufficientBalance = balance < amount;
+
+  if (insufficientBalance)
+    return response.status(400).json({ error: "Insufficient funds." });
+
+  const statementOperation = {
+    amount,
+    created_at: new Date(),
+    type: "debit",
   };
 
   customer.statement.push(statementOperation);
